@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Flipper</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  #colorDisplay {
+    font-size: 30px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+    background-color: black;
+    color: white;
+  }
+
+  #hexValue {
+    color: blue;
+  }
+
+  #colorButton {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #colorButton:hover {
+    background-color: #007bff;
+    color: white;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div id="colorDisplay"><b>Background Color :</b> <span id="hexValue"></span></div>
+  <br/>
+  <button id="colorButton">CLICK ME</button>
+</div>
+
+<script>
+  const colorDisplay = document.getElementById('colorDisplay');
+  const hexValue = document.getElementById('hexValue');
+  const colorButton = document.getElementById('colorButton');
+
+  function generateRandomColor() {
+    const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    return randomColor;
+  }
+
+  colorButton.addEventListener('click', function() {
+    const randomColor = generateRandomColor();
+    document.body.style.backgroundColor = randomColor;
+    hexValue.textContent = randomColor;
+  });
+</script>
+</body>
+</html>
